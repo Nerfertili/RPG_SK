@@ -1,0 +1,184 @@
+#: import Factory kivy.factory.Factory
+<MainMenu>:
+    FirstPage:
+        name:"teste"
+
+<ExtendMagePop@Popup>:
+    auto_dismiss: False
+    title:"extend"
+    size_hint: .5,.5 
+    Button: 
+        text:"close"
+        on_release: root.dismiss()
+
+<ExtendProfPop@Popup>:
+    auto_dismiss: False
+    title:"extend"
+    size_hint: .5,.5 
+    Button: 
+        text:"close"
+        on_release: root.dismiss()
+
+<ExtendAtkPop@Popup>:
+    auto_dismiss: False
+    title:"extend"
+    size_hint: .5,.5 
+    Button: 
+        text:"close"
+        on_release: root.dismiss()
+
+<ExtendBagPop@Popup>:
+    auto_dismiss: False
+    title:"extend"
+    size_hint: .5,.5 
+    Button: 
+        text:"close"
+        on_release: root.dismiss()
+
+<FirstPage>:
+    BoxLayout:
+        GoldGrid:
+            name:"gold_grid"
+        BagGrid:
+            name:"bag_grid"
+        WeaponsGrid:
+            name:"weapons_grid"
+        SpeedGrid:
+            canvas.before:
+                Color:
+                    rgba: 1,0,0,1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            Label:
+                text:"speed"
+            Label:
+                text:"25m"
+<SpeedyGrid>
+    Label:
+        text:"speed"
+    Label:
+        text:"25m"
+<NameGrid>
+    Label:
+        text:"Buelyna"
+<OrientationGrid>
+    Label:
+        text: "Loyal Good"
+<RaceGrid>
+    Label:
+        text:"Gnome"
+<ClassGrid>
+    Label:
+        text:"Class"
+    Label:
+        text:"Druid"
+<InpirationGrid>
+    Label:
+        text:"Inpiration"
+    Label:
+        text:"0"
+<ArmorGrid>
+    Label:
+        text: "Armor Class"
+    GridLayout:
+        cols:2
+        rows:1
+        Label:
+            text: "+3"
+        Label:
+            text: "+3"
+<CharGrid>
+    Image:
+        source:"bicho.jpg" 
+<WeaponsGrid>
+    GridLayout:
+        rows:1
+        cols:2
+        GridLayout:
+            cols:3
+            rows:5
+            Label:
+                text:"-"
+            Label:
+                text:"armas"
+            Label:
+                text:"-"
+            Label:
+                text:"Name"
+            Label:
+                text:"ATK Bonus"
+            Label:
+                text:"Dano"
+            Label:
+                text:"S Sword"
+            Label:
+                text:"+6"
+            Label:
+                text:"1d6+3"
+            Label:
+                text:"S Sword"
+            Label:
+                text:"+6"
+            Label:
+                text:"1d6"
+            Label:
+                text:"Long Bow"
+            Label:
+                text:"+8"
+            Label:
+                text:"1d8+4"
+<BagGrid>
+    GridLayout:
+        cols:1
+        rows:9
+        Label:
+            text:"bag"
+        Label:
+            text:"1"
+        Label:
+            text:"1"
+        Label:
+            text:"1"
+        Label:
+            text:"1"
+        Label:
+            text:"1"
+        Label:
+            text:"1"
+        Label:
+            text:"1"
+        Button:
+            text:"extend"
+            on_release: Factory.ExtendBagPop().open()
+<GoldGrid>
+    canvas.before:
+        Color:
+            rgba:(0,0,1,1)
+        Rectangle:
+            pos: self.pos
+            size:self.size
+    GridLayout:
+        rows:2
+        cols: 5
+        size_hint: .2,.2
+        Label:
+            text:"29"
+        Label:
+            text:"29"
+        Label:
+            text:"29"
+        Label:
+            text:"29"
+        Label:
+            text:"29"
+        Label:
+            text:"CP"
+        Label:
+            text:"SP"
+        Label:
+            text:"EP"
+        Label:
+            text:"GP"
+        Label:
+            text:"PP"
