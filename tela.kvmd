@@ -1,0 +1,225 @@
+#: import Factory kivy.factory.Factory
+#:import utils kivy.utils
+<MainMenu>:
+    FirstPage:
+        name:"teste"
+
+<ExtendMagePop@Popup>:
+    auto_dismiss: False
+    title:"extend"
+    size_hint: .5,.5 
+    Button: 
+        text:"close"
+        on_release: root.dismiss()
+
+<ExtendProfPop@Popup>:
+    auto_dismiss: False
+    title:"extend"
+    size_hint: .5,.5 
+    Button: 
+        text:"close"
+        on_release: root.dismiss()
+
+<ExtendAtkPop@Popup>:
+    auto_dismiss: False
+    title:"extend"
+    size_hint: .5,.5 
+    Button: 
+        text:"close"
+        on_release: root.dismiss()
+
+<ExtendBagPop@Popup>:
+    auto_dismiss: False
+    title:"extend"
+    size_hint: .5,.5 
+    Button: 
+        text:"close"
+        on_release: root.dismiss()
+
+<FirstPage>:
+    FloatLayout:
+        
+        SavingThrowsGrid:
+            size_hint: .19,.2
+            GridLayout:#saving throws
+                rows:7
+                cols:3
+                pos_hint: {'x': .05, 'y': 3.9}
+                canvas.before:
+                    Color: 
+                        rgb: utils.get_color_from_hex("#39B3F2")
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                Label:#title
+                    text:"------"
+                Label:#title
+                    text:"saving throws"
+                Label:#title
+                    text:"------"
+                Label:#title
+                    text:"#"
+                Label:#title
+                    text:"+3"
+                Label:#title
+                    text:"Strength"
+                Label:#title
+                    text:"#"
+                Label:#title
+                    text:"+2"
+                Label:#title
+                    text:"Dexterity"
+                Label:#title
+                    text:"#"
+                Label:#title
+                    text:"+1"
+                Label:#title
+                    text:"Constitution"
+                Label:#title
+                    text:"#"
+                Label:#title
+                    text:"+1"
+                Label:#title
+                    text:"Intelligence"
+                Label:#title
+                    text:"#"
+                Label:#title
+                    text:"+2"
+                Label:#title
+                    text:"Wisdom"
+                Label:#title
+                    text:"#"
+                Label:#title
+                    text:"+4"
+                Label:#title
+                    text:"Charisma"
+        SkillsGrid:
+            size_hint: .25,0.5
+            MDGridLayout:
+                rows: 19
+                cols: 3
+                pos_hint:{'x': .8 ,'y': .5 }
+                canvas.before:
+                    Color: 
+                        rgb: utils.get_color_from_hex("#6D7810")
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                col_default_width: 100
+                col_force_default: True
+                center: root.width / 4, root.height / 4
+                Label:#title
+                    col_default_width: .1
+                    text:"--"
+                Label:#title
+                    text:"Skills"
+                Label:#title
+                    text:"--"
+                Label:#title
+                    text:"#"
+                Label:#title
+                    text:"+3"
+                Label:#title
+                    text:"Acrobatics(dex)"
+                Label:#title
+                    text:"#"
+                Label:#title
+                    text:"+2"
+                Label:#title
+                    text:"Animal handling(wis)"
+                Label:#title
+                    text:"#"
+                Label:#title
+                    text:"+1"
+                Label:#title
+                    text:"Arcana(Int)"
+                Label:#title
+                    text:"#"
+                Label:#title
+                    text:"+1"
+                Label:#title
+                    text:"Athletics(Str)"
+                Label:#title
+                    text:"#"
+                Label:#title
+                    text:"+2"
+                Label:#title
+                    text:"Deception(Cha)"
+                Label:#title
+                    text:"#"
+                Label:#title
+                    text:"+4"
+                Label:#title
+                    text:"History(Int)"
+                Label:#title
+                    text:"#"
+                Label:#title
+                    text:"+4"
+                Label:#title
+                    text:"Insight(Wis)"
+                Label:#title
+                    text:"#"
+                Label:#title
+                    text:"+4"
+                Label:#title
+                    text:"Intimidation(Cha)"
+                Label:#title
+                    text:"#"
+                Label:#title
+                    text:"+4"
+                Label:#title
+                    text:"Investigation(Int)"
+                Label:#title
+                    text:"#"
+                Label:#title
+                    text:"+4"
+                Label:#title
+                    text:"Medicine(Wis)"
+                Label:#title
+                    text:"#"
+                Label:#title
+                    text:"+4"
+                Label:#title
+                    text:"Nature(Int)"
+                Label:#title
+                    text:"#"
+                Label:#title
+                    text:"+4"
+                Label:#title
+                    text:"Perception(Wis)"
+                Label:#title
+                    text:"#"
+                Label:#title
+                    text:"+4"
+                Label:#title
+                    text:"Performance(Cha)"
+                Label:#title
+                    text:"#"
+                Label:#title
+                    text:"+4"
+                Label:#title
+                    text:"Persuasion(Cha)"
+                Label:#title
+                    text:"#"
+                Label:#title
+                    text:"+4"
+                Label:#title
+                    text:"Religion(Int)"
+                Label:#title
+                    text:"#"
+                Label:#title
+                    text:"+4"
+                Label:#title
+                    text:"Sleight of Hand(Dex)"
+                Label:#title
+                    text:"#"
+                Label:#title
+                    text:"+4"
+                Label:#title
+                    text:"Stealth(Dex)"
+                Label:#title
+                    text:"#"
+                Label:#title
+                    text:"+4"
+                Label:#title
+                    text:"Survival(Wis)"

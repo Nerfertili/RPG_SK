@@ -1,4 +1,5 @@
 #: import Factory kivy.factory.Factory
+#:import utils kivy.utils
 <MainMenu>:
     FirstPage:
         name:"teste"
@@ -36,210 +37,249 @@
         on_release: root.dismiss()
 
 <FirstPage>:
-    SavingThrowsGrid:
-        GridLayout:#saving throws
-            rows:7
-            cols:3
-            Label:#title
-                text:"----------"
-            Label:#title
-                text:"saving throws"
-            Label:#title
-                text:"-----------"
-            Label:#title
-                text:"#"
-            Label:#title
-                text:"+3"
-            Label:#title
-                text:"Strength"
-            Label:#title
-                text:"#"
-            Label:#title
-                text:"+2"
-            Label:#title
-                text:"Dexterity"
-            Label:#title
-                text:"#"
-            Label:#title
-                text:"+1"
-            Label:#title
-                text:"Constitution"
-            Label:#title
-                text:"#"
-            Label:#title
-                text:"+1"
-            Label:#title
-                text:"Intelligence"
-            Label:#title
-                text:"#"
-            Label:#title
-                text:"+2"
-            Label:#title
-                text:"Wisdom"
-            Label:#title
-                text:"#"
-            Label:#title
-                text:"+4"
-            Label:#title
-                text:"Charisma"
-    SkillsGrid:
-        GridLayout:#skills
-            rows: 19
-            cols: 3
-            Label:#title
-                text:"--"
-            Label:#title
-                text:"Skills"
-            Label:#title
-                text:"--"
-            Label:#title
-                text:"#"
-            Label:#title
-                text:"+3"
-            Label:#title
-                text:"Acrobatics(dex)"
-            Label:#title
-                text:"#"
-            Label:#title
-                text:"+2"
-            Label:#title
-                text:"Animal handling(wis)"
-            Label:#title
-                text:"#"
-            Label:#title
-                text:"+1"
-            Label:#title
-                text:"Arcana(Int)"
-            Label:#title
-                text:"#"
-            Label:#title
-                text:"+1"
-            Label:#title
-                text:"Athletics(Str)"
-            Label:#title
-                text:"#"
-            Label:#title
-                text:"+2"
-            Label:#title
-                text:"Deception(Cha)"
-            Label:#title
-                text:"#"
-            Label:#title
-                text:"+4"
-            Label:#title
-                text:"History(Int)"
-            Label:#title
-                text:"#"
-            Label:#title
-                text:"+4"
-            Label:#title
-                text:"Insight(Wis)"
-            Label:#title
-                text:"#"
-            Label:#title
-                text:"+4"
-            Label:#title
-                text:"Intimidation(Cha)"
-            Label:#title
-                text:"#"
-            Label:#title
-                text:"+4"
-            Label:#title
-                text:"Investigation(Int)"
-            Label:#title
-                text:"#"
-            Label:#title
-                text:"+4"
-            Label:#title
-                text:"Medicine(Wis)"
-            Label:#title
-                text:"#"
-            Label:#title
-                text:"+4"
-            Label:#title
-                text:"Nature(Int)"
-            Label:#title
-                text:"#"
-            Label:#title
-                text:"+4"
-            Label:#title
-                text:"Perception(Wis)"
-            Label:#title
-                text:"#"
-            Label:#title
-                text:"+4"
-            Label:#title
-                text:"Performance(Cha)"
-            Label:#title
-                text:"#"
-            Label:#title
-                text:"+4"
-            Label:#title
-                text:"Persuasion(Cha)"
-            Label:#title
-                text:"#"
-            Label:#title
-                text:"+4"
-            Label:#title
-                text:"Religion(Int)"
-            Label:#title
-                text:"#"
-            Label:#title
-                text:"+4"
-            Label:#title
-                text:"Sleight of Hand(Dex)"
-            Label:#title
-                text:"#"
-            Label:#title
-                text:"+4"
-            Label:#title
-                text:"Stealth(Dex)"
-            Label:#title
-                text:"#"
-            Label:#title
-                text:"+4"
-            Label:#title
-                text:"Survival(Wis)"
-    SpellsGrid:
-        GridLayout:#spells resumé
-            rows:9            
-            cols:1   
-            Label:
-                text:"spells resume"
-            Label:
-                text:"spell 1"
-            Label:
-                text:"spell 2"
-            Label:
-                text:"spell 3"
-            Label:
-                text:"spell 4"
-            Label:
-                text:"spell 5"
-            Label:
-                text:"spell 6"
-            Label:
-                text:"spell 7"
-            Button:
-                text:"extend"
-                on_release: Factory.ExtendMagePop().open()
-    HabilityGrid:
-        GridLayout:
-            rows:13
-            cols:1
-            Label:#habilidades
-                text: "habilidades"
-            Label:
-                text:"força"
-            GridLayout:
-                rows:1
-                cols:2
-                Label:
-                    text:"1"
-                Label:
+    FloatLayout:
+        #: set button_size .1,.1
+        Button:
+            size_hint: button_size
+            pos_hint: {'x': 0 ,'y': .1 }
+            text: "historia"
+        Button:
+            size_hint: button_size
+            text: "editar"
+        Button:
+            size_hint: button_size
+            pos_hint: {'x': .1 ,'y': 0}
+            text: "salvar"
+        SavingThrowsGrid:
+            size_hint: .19,.2
+            GridLayout:#saving throws
+                rows:7
+                cols:3
+                pos_hint: {'x': .05, 'y': 3.9}
+                canvas.before:
+                    Color: 
+                        rgb: utils.get_color_from_hex("#39B3F2")
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                Label:#title
+                    text:"------"
+                Label:#title
+                    text:"saving throws"
+                Label:#title
+                    text:"------"
+                Label:#title
+                    text:"#"
+                Label:#title
+                    text:"+3"
+                Label:#title
+                    text:"Strength"
+                Label:#title
+                    text:"#"
+                Label:#title
+                    text:"+2"
+                Label:#title
+                    text:"Dexterity"
+                Label:#title
+                    text:"#"
+                Label:#title
                     text:"+1"
-            Label:
-                text:"destreza"
+                Label:#title
+                    text:"Constitution"
+                Label:#title
+                    text:"#"
+                Label:#title
+                    text:"+1"
+                Label:#title
+                    text:"Intelligence"
+                Label:#title
+                    text:"#"
+                Label:#title
+                    text:"+2"
+                Label:#title
+                    text:"Wisdom"
+                Label:#title
+                    text:"#"
+                Label:#title
+                    text:"+4"
+                Label:#title
+                    text:"Charisma"
+        SkillsGrid:
+            size_hint: .25,0.5
+            pos_hint:{'x': .2 ,'y': .48 }
+            GridLayout:
+                rows: 19
+                cols: 3
+                canvas.before:
+                    Color: 
+                        rgb: utils.get_color_from_hex("#6D7810")
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                col_default_width: 0.361*self.size[0]-23.285
+                col_force_default: True
+                Label:#title
+                    col_default_width: .1
+                    text: "--"
+                Label:#title
+                    text:"Skills"
+                Label:#title
+                    text:"--"
+                Label:#title
+                    text:"#"
+                Label:#title
+                    text:"+3"
+                Label:#title
+                    text:"Acrobatics(dex)"
+                Label:#title
+                    text:"#"
+                Label:#title
+                    text:"+2"
+                Label:#title
+                    text:"Animal handling(wis)"
+                Label:#title
+                    text:"#"
+                Label:#title
+                    text:"+1"
+                Label:#title
+                    text:"Arcana(Int)"
+                Label:#title
+                    text:"#"
+                Label:#title
+                    text:"+1"
+                Label:#title
+                    text:"Athletics(Str)"
+                Label:#title
+                    text:"#"
+                Label:#title
+                    text:"+2"
+                Label:#title
+                    text:"Deception(Cha)"
+                Label:#title
+                    text:"#"
+                Label:#title
+                    text:"+4"
+                Label:#title
+                    text:"History(Int)"
+                Label:#title
+                    text:"#"
+                Label:#title
+                    text:"+4"
+                Label:#title
+                    text:"Insight(Wis)"
+                Label:#title
+                    text:"#"
+                Label:#title
+                    text:"+4"
+                Label:#title
+                    text:"Intimidation(Cha)"
+                Label:#title
+                    text:"#"
+                Label:#title
+                    text:"+4"
+                Label:#title
+                    text:"Investigation(Int)"
+                Label:#title
+                    text:"#"
+                Label:#title
+                    text:"+4"
+                Label:#title
+                    text:"Medicine(Wis)"
+                Label:#title
+                    text:"#"
+                Label:#title
+                    text:"+4"
+                Label:#title
+                    text:"Nature(Int)"
+                Label:#title
+                    text:"#"
+                Label:#title
+                    text:"+4"
+                Label:#title
+                    text:"Perception(Wis)"
+                Label:#title
+                    text:"#"
+                Label:#title
+                    text:"+4"
+                Label:#title
+                    text:"Performance(Cha)"
+                Label:#title
+                    text:"#"
+                Label:#title
+                    text:"+4"
+                Label:#title
+                    text:"Persuasion(Cha)"
+                Label:#title
+                    text:"#"
+                Label:#title
+                    text:"+4"
+                Label:#title
+                    text:"Religion(Int)"
+                Label:#title
+                    text:"#"
+                Label:#title
+                    text:"+4"
+                Label:#title
+                    text:"Sleight of Hand(Dex)"
+                Label:#title
+                    text:"#"
+                Label:#title
+                    text:"+4"
+                Label:#title
+                    text:"Stealth(Dex)"
+                Label:#title
+                    text:"#"
+                Label:#title
+                    text:"+4"
+                Label:#title
+                    text:"Survival(Wis)"
+        SpellsGrid:
+            size_hint: .165,0.25
+            pos_hint:{'x': .2 ,'y': .21 }
+            GridLayout:#spells resumé
+                rows:9            
+                cols:1
+                canvas.before:
+                    Color: 
+                        rgb: utils.get_color_from_hex("#10784D")
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                Label:
+                    text:"spells resume"
+                Label:
+                    text:"spell 1"
+                Label:
+                    text:"spell 2"
+                Label:
+                    text:"spell 3"
+                Label:
+                    text:"spell 4"
+                Label:
+                    text:"spell 5"
+                Label:
+                    text:"spell 6"
+                Label:
+                    text:"spell 7"
+                Button:
+                    text:"extend"
+                    on_release: Factory.ExtendMagePop().open()
+        HabilityGrid:
+            size_hint: .075,0.43
+            pos_hint:{'x': .375 ,'y': .03 }
+            GridLayout:
+                rows:13
+                cols:1
+                canvas.before:
+                    Color: 
+                        rgb: utils.get_color_from_hex("#7D0D91")
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                Label:#habilidades
+                    text: "habilidades"
+                Label:
+                    text:"força"
                 GridLayout:
                     rows:1
                     cols:2
@@ -247,255 +287,509 @@
                         text:"1"
                     Label:
                         text:"+1"
+                Label:
+                    text:"destreza"
+                GridLayout:
+                    rows:1
+                    cols:2
+                    Label:
+                        text:"1"
+                    Label:
+                        text:"+1"
+                Label:
+                    text:"constituição"
+                GridLayout:
+                    rows:1
+                    cols:2
+                    Label:
+                        text:"1"
+                    Label:
+                        text:"+1"
+                Label:
+                    text:"inteligencia"
+                GridLayout:
+                    rows:1
+                    cols:2
+                    Label:
+                        text:"1"
+                    Label:
+                        text:"+1"
+                Label:
+                    text:"sabedoria"
+                GridLayout:
+                    rows:1
+                    cols:2
+                    Label:
+                        text:"1"
+                    Label:
+                        text:"+1"
+                Label:
+                    text:"carisma"
+                GridLayout:
+                    rows:1
+                    cols:2
+                    Label:
+                        text:"1"
+                    Label:
+                        text:"+1"
+        ProficiencyGrid:
+            orientation: 'vertical'
+            size_hint: .075,0.1
+            pos_hint:{'x': .46 ,'y': .88 }
+            canvas.before:
+                Color: 
+                    rgb: utils.get_color_from_hex("#910D57")
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
             Label:
-                text:"constituição"
+                text:"proficiencia"
+            Label:
+                canvas.before:
+                    Color: 
+                        rgb: utils.get_color_from_hex("#541D3C")
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                text:"30"
+        PassWisGrid:
+            orientation: 'vertical'
+            size_hint: .075,0.1
+            pos_hint:{'x': .46 ,'y': .76 }
+            canvas.before:
+                Color: 
+                    rgb: utils.get_color_from_hex("#D441E3")
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            Label:
+                text:"passive wis"
+            Label:
+                canvas.before:
+                    Color: 
+                        rgb: utils.get_color_from_hex("#8D2498")
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                text:"30"
+        IniciativeGrid:
+            orientation: 'vertical'
+            size_hint: .075,0.1
+            pos_hint:{'x': .46 ,'y': .64 }
+            canvas.before:
+                Color: 
+                    rgb: utils.get_color_from_hex("#C62424")
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            Label:
+                text:"iniciativa"
+            Label:
+                canvas.before:
+                    Color: 
+                        rgb: utils.get_color_from_hex("#671010")
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                text:"30"
+        LifeGrid:
+            orientation: 'vertical'
+            size_hint: .075,0.1
+            pos_hint:{'x': .46 ,'y': .52 }
+            canvas.before:
+                Color: 
+                    rgb: utils.get_color_from_hex("#53A70D")
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            Label:
+                text:"vida"
+            Label:
+                canvas.before:
+                    Color: 
+                        rgb: utils.get_color_from_hex("#376F08")
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                text:"30"
+        SpeedGrid:
+            orientation: 'vertical'
+            size_hint: .075,0.1
+            pos_hint:{'x': .55 ,'y': .88 }
+            canvas.before:
+                Color: 
+                    rgb: utils.get_color_from_hex("#53A70D")
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            Label:
+                text:"speed"
+            Label:
+                canvas.before:
+                    Color: 
+                        rgb: utils.get_color_from_hex("#376F08")
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                text:"30"
+        LevelGrid:
+            orientation: 'vertical'
+            size_hint: .075,0.1
+            pos_hint:{'x': .55 ,'y': .76 }
+            canvas.before:
+                Color: 
+                    rgb: utils.get_color_from_hex("#0DC291")
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            Label:
+                text:"nivel"
+            Label:
+                canvas.before:
+                    Color: 
+                        rgb: utils.get_color_from_hex("#0B8161")
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                text:"30"
+        XpGrid:
+            orientation: 'vertical'
+            size_hint: .075,0.1
+            pos_hint:{'x': .55 ,'y': .64 }
+            canvas.before:
+                Color: 
+                    rgb: utils.get_color_from_hex("#0DC291")
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            Label:
+                text:"xp"
+            Label:
+                canvas.before:
+                    Color: 
+                        rgb: utils.get_color_from_hex("#0B8161")
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                text:"30"
+        DathSaveGrid:
+            orientation: 'vertical'
+            size_hint: .075,0.1
+            pos_hint:{'x': .55 ,'y': .52 }
+            canvas.before:
+                Color: 
+                    rgb: utils.get_color_from_hex("#0DC291")
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            Label:
+                text:"deth & saves"
             GridLayout:
-                rows:1
-                cols:2
+                canvas.before:
+                    Color: 
+                        rgb: utils.get_color_from_hex("#0B8161")
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                rows:2
+                cols:3
+                Label:
+                    text:"%"
+                Label:
+                    text:"%"
+                Label:
+                    text:"%"
+                Label:
+                    text:"@"
+                Label:
+                    text:"@"
+                Label:
+                    text:"@"
+        OtProfGrid:
+            size_hint: .165,0.25
+            pos_hint:{'x': .46 ,'y': .25 }
+            GridLayout:
+                cols:1
+                rows: 9
+                canvas.before:
+                    Color: 
+                        rgb: utils.get_color_from_hex("#10784D")
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size  
+                Label:
+                    text:"Other proficiencies"
                 Label:
                     text:"1"
                 Label:
-                    text:"+1"
-            Label:
-                text:"inteligencia"
-            GridLayout:
-                rows:1
-                cols:2
+                    text:"1"
                 Label:
                     text:"1"
                 Label:
-                    text:"+1"
-            Label:
-                text:"sabedoria"
-            GridLayout:
-                rows:1
-                cols:2
+                    text:"1"
                 Label:
                     text:"1"
                 Label:
-                    text:"+1"
-            Label:
-                text:"carisma"
+                    text:"1"
+                Label:
+                    text:"1"
+                Button:
+                    text:"extend"
+                    on_release: Factory.ExtendProfPop().open()
+        SupAtkGrid:
+            size_hint: .185,0.25
+            pos_hint:{'x': .005 ,'y': .51 }
             GridLayout:
-                rows:1
-                cols:2
+                cols:1
+                rows:9
+                canvas.before:
+                    Color: 
+                        rgb: utils.get_color_from_hex("#10784D")
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                Label:
+                    text:"support atacks"
                 Label:
                     text:"1"
                 Label:
-                    text:"+1"
-    ProficiencyGrid:
-        Label:
-            text:"proficiencia"
-        Label:
-            text:"30"
-    PassWisGrid:
-        Label:
-            text:"passive wisdom"
-        Label:
-            text:"30"
-    IniciativeGrid:
-        Label:
-            text:"iniciativa"
-        Label:
-            text:"30"
-    LifeGrid:
-        Label:
-            text:"vida"
-        Label:
-            text:"30"
-    SpeedGrid:
-        Label:
-            text:"speed"
-        Label:
-            text:"30"
-    LevelGrid:
-        Label:
-            text:"nivel"
-        Label:
-            text:"30"
-    XpGrid:
-        Label:
-            text:"xp"
-        Label:
-            text:"30"
-    DathSaveGrid:
-        Label:
-            text:"deth & saves"
-        GridLayout:
-            rows:2
-            cols:3
+                    text:"1"
+                Label:
+                    text:"1"
+                Label:
+                    text:"1"
+                Label:
+                    text:"1"
+                Label:
+                    text:"1"
+                Label:
+                    text:"1"
+                Button:
+                    text:"extend"
+                    on_release: Factory.ExtendAtkPop().open()
+        NameGrid:
+            orientation: 'vertical'
+            size_hint: .075,0.07
+            pos_hint:{'x': .64 ,'y': .91 }
+            canvas.before:
+                Color: 
+                    rgb: utils.get_color_from_hex("#0DC291")
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
             Label:
-                text:"%"
+                font_size: 30
+                color: 0,0,0,1 
+                text:"belyna"
+        OrientationGrid:
+            orientation: 'vertical'
+            size_hint: .075,0.07
+            pos_hint:{'x': .64 ,'y': .82 }
+            canvas.before:
+                Color: 
+                    rgb: utils.get_color_from_hex("#0DC291")
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
             Label:
-                text:"%"
+                font_size: 20
+                color: 0,0,0,1 
+                text:"loyal good"
+        RaceGrid:
+            orientation: 'vertical'
+            size_hint: .075,0.07
+            pos_hint:{'x': .64 ,'y': .73 }
+            canvas.before:
+                Color: 
+                    rgb: utils.get_color_from_hex("#0DC291")
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
             Label:
-                text:"%"
+                font_size: 20
+                color: 0,0,0,1 
+                text:"gnome"
+        ClassGrid:
+            orientation: 'vertical'
+            size_hint: .075,0.1
+            pos_hint:{'x': .64 ,'y': .61 }
+            canvas.before:
+                Color: 
+                    rgb: utils.get_color_from_hex("#53A70D")
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
             Label:
-                text:"@"
+                text:"classe"
             Label:
-                text:"@"
+                canvas.before:
+                    Color: 
+                        rgb: utils.get_color_from_hex("#376F08")
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                text:"druida"
+        InpirationGrid:
+            orientation: 'vertical'
+            size_hint: .075,0.1
+            pos_hint:{'x': .64 ,'y': .49 }
+            canvas.before:
+                Color: 
+                    rgb: utils.get_color_from_hex("#53A70D")
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
             Label:
-                text:"@"
-    OtProfGrid:
-        GridLayout:
-            cols:1
-            rows: 9
+                text:"inpiração"
             Label:
-                text:"Other proficiencies"
+                canvas.before:
+                    Color: 
+                        rgb: utils.get_color_from_hex("#376F08")
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                text:"0"
+        ArmorGrid:
+            orientation: 'vertical'
+            size_hint: .075,0.1
+            pos_hint:{'x': .64 ,'y': .37 }
+            canvas.before:
+                Color: 
+                    rgb: utils.get_color_from_hex("#53A70D")
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
             Label:
-                text:"1"
-            Label:
-                text:"1"
-            Label:
-                text:"1"
-            Label:
-                text:"1"
-            Label:
-                text:"1"
-            Label:
-                text:"1"
-            Label:
-                text:"1"
-            Button:
-                text:"extend"
-                on_release: Factory.ExtendProfPop().open()
-    SupAtkGrid:
-        GridLayout:
-            cols:1
-            rows:9
-            Label:
-                text:"support atacks"
-            Label:
-                text:"1"
-            Label:
-                text:"1"
-            Label:
-                text:"1"
-            Label:
-                text:"1"
-            Label:
-                text:"1"
-            Label:
-                text:"1"
-            Label:
-                text:"1"
-            Button:
-                text:"extend"
-                on_release: Factory.ExtendAtkPop().open()
-    NameGrid:
-        Label:
-            text:"belyna"
-    OrientationGrid:
-        Label:
-            text:"loyal good"
-    RaceGrid:
-        Label:
-            text:"gnome"
-    ClassGrid:
-        Label:
-            text:"classe"
-        Label:
-            text:"druida"
-    InpirationGrid:
-        Label:
-            text:"inpiração"
-        Label:
-            text:"0"
-    ArmorGrid:
-        Label:
-            text:"armor class"
-        GridLayout:
-            cols:2
-            rows:1
-            Label:
-                text:"+2"
-            Label:
-                text:"+2"
-    CharGrid:
-        Image:
-            source:"bicho.jpg"                  
-    WeaponsGrid:
-        GridLayout:
-            cols:3
-            rows:5
-            Label:
-                text:"-"
-            Label:
-                text:"armas"
-            Label:
-                text:"-"
-            Label:
-                text:"Name"
-            Label:
-                text:"ATK Bonus"
-            Label:
-                text:"Dano"
-            Label:
-                text:"S Sword"
-            Label:
-                text:"+6"
-            Label:
-                text:"1d6+3"
-            Label:
-                text:"S Sword"
-            Label:
-                text:"+6"
-            Label:
-                text:"1d6"
-            Label:
-                text:"Long Bow"
-            Label:
-                text:"+8"
-            Label:
-                text:"1d8+4"
-    BagGrid:
-        GridLayout:
-            cols:1
-            rows:9
-            Label:
-                text:"bag"
-            Label:
-                text:"1"
-            Label:
-                text:"1"
-            Label:
-                text:"1"
-            Label:
-                text:"1"
-            Label:
-                text:"1"
-            Label:
-                text:"1"
-            Label:
-                text:"1"
-            Button:
-                text:"extend"
-                on_release: Factory.ExtendBagPop().open()
-    GoldGrid:
-        anchor: "bottom-right"
-        Image:
-            source:"teste.png"
-            size_hint: 1,1
-        GridLayout:
-            rows:2
-            cols: 5
-            Label:
-                text:"29"
-            Label:
-                text:"29"
-            Label:
-                text:"29"
-            Label:
-                text:"29"
-            Label:
-                text:"29"
-            Label:
-                text:"CP"
-            Label:
-                text:"SP"
-            Label:
-                text:"EP"
-            Label:
-                text:"GP"
-            Label:
-                text:"PP"
+                text:"armor class"
+            GridLayout:
+                cols:2
+                rows:1
+                Label:
+                    canvas.before:
+                        Color: 
+                            rgb: utils.get_color_from_hex("#376F08")
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+                    text:"+2"
+                Label:
+                    canvas.before:
+                        Color: 
+                            rgb: utils.get_color_from_hex("#0B8161")
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+                    text:"+2"
+        CharGrid:
+            size_hint: .4,.6
+            pos_hint:{'x': .66 ,'y': .38 }
+            Image:
+                source:"bicho.jpg"
+        WeaponsGrid:
+            size_hint: .185,0.25
+            pos_hint:{'x': .005 ,'y': .24 }
+            GridLayout:
+                cols:3
+                rows:5
+                canvas.before:
+                    Color: 
+                        rgb: utils.get_color_from_hex("#10784D")
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                Label:
+                    text:"-"
+                Label:
+                    text:"armas"
+                Label:
+                    text:"-"
+                Label:
+                    text:"Name"
+                Label:
+                    text:"ATK Bonus"
+                Label:
+                    text:"Dano"
+                Label:
+                    text:"S Sword"
+                Label:
+                    text:"+6"
+                Label:
+                    text:"1d6+3"
+                Label:
+                    text:"S Sword"
+                Label:
+                    text:"+6"
+                Label:
+                    text:"1d6"
+                Label:
+                    text:"Long Bow"
+                Label:
+                    text:"+8"
+                Label:
+                    text:"1d8+4"
+        BagGrid:
+            size_hint: .165,0.25
+            pos_hint:{'x': .64 ,'y': .1 }
+            GridLayout:
+                cols:1
+                rows:9
+                canvas.before:
+                    Color: 
+                        rgb: utils.get_color_from_hex("#10784D")
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size  
+                Label:
+                    text:"bag"
+                Label:
+                    text:"1"
+                Label:
+                    text:"1"
+                Label:
+                    text:"1"
+                Label:
+                    text:"1"
+                Label:
+                    text:"1"
+                Label:
+                    text:"1"
+                Label:
+                    text:"1"
+                Button:
+                    text:"extend"
+                    on_release: Factory.ExtendBagPop().open()
+        GoldGrid:
+            #:set y .23
+            #:set x .72
+            size_hint: .15,.1
+            pos_hint: {'x':x , 'y':y} 
+            GridLayout:
+                rows:2
+                cols: 5
+                pos_hint: {'x':x , 'y':y} 
+                canvas.before:
+                    Color: 
+                        rgb: utils.get_color_from_hex("#10784D")
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size 
+                Label:
+                    text:"29"
+                Label:
+                    text:"29"
+                Label:
+                    text:"29"
+                Label:
+                    text:"29"
+                Label:
+                    text:"29"
+                Label:
+                    text:"CP"
+                Label:
+                    text:"SP"
+                Label:
+                    text:"EP"
+                Label:
+                    text:"GP"
+                Label:
+                    text:"PP"

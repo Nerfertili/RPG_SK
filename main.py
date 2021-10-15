@@ -19,7 +19,7 @@ class FirstPage(Screen):
         super().__init__(**kwargs)
         Window.size = (1366,768)
 
-    class GoldGrid(AnchorLayout):
+    class GoldGrid(FloatLayout):
         pass
 
     class BagGrid(BoxLayout):
