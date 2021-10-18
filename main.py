@@ -1,5 +1,6 @@
 from kivy.app import App
 from kivy.lang import Builder
+from kivy.logger import BOLD_SEQ
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.core.window import Window
 from kivy.properties import StringProperty
@@ -14,20 +15,75 @@ class MainMenu(ScreenManager):
         #super().__init__(**kwargs)
         #Window.size = (1366,768)
     pass
+
+class HistoryPage(Screen):
+
+    def __init__(self, **kwargs):    # isso é só para deixar definido o tamanho da tela
+        super().__init__(**kwargs)
+        Window.size = (1366,768)
+    
+    def p_main(self):
+        self.parent.current = "first"
+
+    class Treasure(BoxLayout):
+        pass
+    class AddFeat(BoxLayout):
+        pass
+    class Backstory(BoxLayout):
+        pass
+    class Allies(BoxLayout):
+        pass
+    class Organizations(BoxLayout):
+        pass
+
+class SpellsPage(Screen):
+
+    def __init__(self, **kwargs):    # isso é só para deixar definido o tamanho da tela
+        super().__init__(**kwargs)
+        Window.size = (1366,768)
+    
+    def p_main(self):
+        self.parent.current = "first"
+    
+    class Cantrips(FloatLayout):
+        pass
+    class Level1(FloatLayout):
+        pass
+    class Level2(FloatLayout):
+        pass
+    class Level3(FloatLayout):
+        pass
+    class Level4(FloatLayout):
+        pass 
+    class Level5(FloatLayout):
+        pass
+    class Level6(FloatLayout):
+        pass
+    class Level7(FloatLayout):
+        pass
+    class Level8(FloatLayout):
+        pass
+    class Level9(FloatLayout):
+        pass
+
+
 class FirstPage(Screen):
     def __init__(self, **kwargs):    # isso é só para deixar definido o tamanho da tela
         super().__init__(**kwargs)
         Window.size = (1366,768)
 
+    def p_hist(self):
+        self.parent.current = 'history'
+    
+    def p_spells(self):
+        self.parent.current = "spells"
+    
     class GoldGrid(FloatLayout):
         pass
-
     class BagGrid(BoxLayout):
         pass
-
     class WeaponsGrid(BoxLayout):
         pass
-
     class SpeedGrid(BoxLayout):
         pass
     class SavingThrowsGrid(BoxLayout):

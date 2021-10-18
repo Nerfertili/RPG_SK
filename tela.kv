@@ -2,7 +2,11 @@
 #:import utils kivy.utils
 <MainMenu>:
     FirstPage:
-        name:"teste"
+        name:"first"
+    HistoryPage:
+        name:"history"
+    SpellsPage:
+        name:"spells"
 
 <ExtendMagePop@Popup>:
     auto_dismiss: False
@@ -36,6 +40,38 @@
         text:"close"
         on_release: root.dismiss()
 
+<ExtendTresurePop@Popup>:
+    auto_dismiss: False
+    title:"extend"
+    size_hint: .5,.5 
+    Button: 
+        text:"close"
+        on_release: root.dismiss()
+
+<ExtendAddFeatPop@Popup>:
+    auto_dismiss: False
+    title:"extend"
+    size_hint: .5,.5 
+    Button: 
+        text:"close"
+        on_release: root.dismiss()
+
+<ExtendAlliesPop@Popup>:
+    auto_dismiss: False
+    title:"extend"
+    size_hint: .5,.5 
+    Button: 
+        text:"close"
+        on_release: root.dismiss()
+
+<ExtendOrganizationsPop@Popup>:
+    auto_dismiss: False
+    title:"extend"
+    size_hint: .5,.5 
+    Button: 
+        text:"close"
+        on_release: root.dismiss()
+
 <FirstPage>:
     FloatLayout:
         #: set button_size .1,.1
@@ -43,6 +79,7 @@
             size_hint: button_size
             pos_hint: {'x': 0 ,'y': .1 }
             text: "historia"
+            on_release: root.p_hist()
         Button:
             size_hint: button_size
             text: "editar"
@@ -263,7 +300,7 @@
                     text:"spell 7"
                 Button:
                     text:"extend"
-                    on_release: Factory.ExtendMagePop().open()
+                    on_release: root.p_spells()
         HabilityGrid:
             size_hint: .075,0.43
             pos_hint:{'x': .375 ,'y': .03 }
@@ -793,3 +830,754 @@
                     text:"GP"
                 Label:
                     text:"PP"
+
+<HistoryPage>:
+    FloatLayout:
+        #: set button_size .1,.1
+        Button:
+            size_hint: button_size
+            pos_hint: {'x': .2 ,'y': .0 }
+            text: "Main Menu"
+            on_release: root.p_main()
+        Button:
+            size_hint: button_size
+            text: "editar"
+        Button:
+            size_hint: button_size
+            pos_hint: {'x': .1 ,'y': 0}
+            text: "salvar"
+
+        Treasure:
+            size_hint: .2,0.35
+            pos_hint:{'x': .45 ,'y': .21 }
+            GridLayout:
+                cols:1
+                rows:15
+                canvas.before:
+                    Color: 
+                        rgb: utils.get_color_from_hex("#10784D")
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size  
+                Label:
+                    text:"tresure"
+                Label:
+                    text:"1"
+                Label:
+                    text:"1"
+                Label:
+                    text:"1"
+                Label:
+                    text:"1"
+                Label:
+                    text:"1"
+                Label:
+                    text:"1"
+                Label:
+                    text:"1"
+                Label:
+                    text:"1"
+                Label:
+                    text:"1"
+                Label:
+                    text:"1"
+                Label:
+                    text:"1"
+                Label:
+                    text:"1"
+                Label:
+                    text:"1"
+                Button:
+                    text:"extend"
+                    on_release: Factory.ExtendTresurePop().open()
+        AddFeat:
+            size_hint: .2,0.35
+            pos_hint:{'x': .45 ,'y': .61 }
+            GridLayout:
+                cols:1
+                rows:15
+                canvas.before:
+                    Color: 
+                        rgb: utils.get_color_from_hex("#10784D")
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size  
+                Label:
+                    text:"Additional Features"
+                Label:
+                    text:"1"
+                Label:
+                    text:"1"
+                Label:
+                    text:"1"
+                Label:
+                    text:"1"
+                Label:
+                    text:"1"
+                Label:
+                    text:"1"
+                Label:
+                    text:"1"
+                Label:
+                    text:"1"
+                Label:
+                    text:"1"
+                Label:
+                    text:"1"
+                Label:
+                    text:"1"
+                Label:
+                    text:"1"
+                Label:
+                    text:"1"
+                Button:
+                    text:"extend"
+                    on_release: Factory.ExtendAddFeatPop().open()
+        Backstory:
+            #: set pos {'x': .025 ,'y':.09 }
+            size_hint: .4,.8
+            pos_hint:pos
+            TextInput:
+                pos_hint:pos
+                font_name: "Seagram_tfb.ttf"
+                text:
+        Allies:
+            size_hint: .2,0.35
+            pos_hint:{'x': .72 ,'y': .61 }
+            GridLayout:
+                cols:1
+                rows:15
+                canvas.before:
+                    Color: 
+                        rgb: utils.get_color_from_hex("#10784D")
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size  
+                Label:
+                    text:"Allies"
+                Label:
+                    text:"1"
+                Label:
+                    text:"1"
+                Label:
+                    text:"1"
+                Label:
+                    text:"1"
+                Label:
+                    text:"1"
+                Label:
+                    text:"1"
+                Label:
+                    text:"1"
+                Label:
+                    text:"1"
+                Label:
+                    text:"1"
+                Label:
+                    text:"1"
+                Label:
+                    text:"1"
+                Label:
+                    text:"1"
+                Label:
+                    text:"1"
+                Button:
+                    text:"extend"
+                    on_release: Factory.ExtendAlliesPop().open()
+        Organizations:
+            size_hint: .2,0.35
+            pos_hint:{'x': .72 ,'y': .21 }
+            GridLayout:
+                cols:1
+                rows:15
+                canvas.before:
+                    Color: 
+                        rgb: utils.get_color_from_hex("#10784D")
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size  
+                Label:
+                    text:"Organizations"
+                Label:
+                    text:"1"
+                Label:
+                    text:"1"
+                Label:
+                    text:"1"
+                Label:
+                    text:"1"
+                Label:
+                    text:"1"
+                Label:
+                    text:"1"
+                Label:
+                    text:"1"
+                Label:
+                    text:"1"
+                Label:
+                    text:"1"
+                Label:
+                    text:"1"
+                Label:
+                    text:"1"
+                Label:
+                    text:"1"
+                Label:
+                    text:"1"
+                Button:
+                    text:"extend"
+                    on_release: Factory.ExtendOrganizationsPop().open()
+
+<SpellsPage>:
+    FloatLayout:
+        #: set button_size_s .1,.05
+        Button:
+            size_hint: button_size_s
+            pos_hint: {'x': .2 ,'y': .0 }
+            text: "Main Menu"
+            on_release: root.p_main()
+        Button:
+            size_hint: button_size_s
+            text: "editar"
+        Button:
+            size_hint: button_size_s
+            pos_hint: {'x': .1 ,'y': 0}
+            text: "salvar"
+
+        Cantrips:
+            #:set y_c .3
+            #:set x_c 0.03
+            pos_hint: {'x':x_c , 'y':y_c} 
+            Label:
+                text:"Cantrips"
+                pos_hint: {'x': x_c-0.45, 'y':y_c-0.18}                
+            GridLayout:#nomes dos feitiços
+                pos_hint: {'x': x_c, 'y': y_c}
+                size_hint: .1,.3
+                rows: 6
+                cols:1
+                Label:
+                    text:"nomdfasdfsdafdae"
+                Label:
+                    text:"nodsafdsfasme"
+                Label:
+                    text:"ndfafdsafdome"
+                Label:
+                    text:"nodsafdasfsme"
+                Label:
+                    text:"nodasfsdme"
+                GridLayout:
+                    cols:2
+                    rows:1
+                    Button:
+                        text:"add"
+                    Button:
+                        text:"remove"
+            GridLayout:#se eles estao prontos ou nao
+                rows:5
+                cols:1
+                pos_hint: {'x':( x_c-0.03) , 'y':(y_c+0.05)} 
+                # pos_hint: {'x': x_c, 'y': y_c}
+                size_hint: .02,.25
+                CheckBox:
+                CheckBox:
+                CheckBox:
+                CheckBox:
+                CheckBox:
+            GridLayout:#abrir eles expandidos
+                pos_hint: {'x': (x_c+0.1 ), 'y':(y_c+0.05)} 
+                #pos_hint: {'x': x_c, 'y': y_c}
+                size_hint: .02,.25
+                rows:5
+                cols:1
+                Button:
+                Button:
+                Button:
+                Button:
+                Button:
+        Level1:
+            #:set y_I .3
+            #:set x_I .12
+            pos_hint: {'x':x_I , 'y':y_I}
+            Label:
+                text:"Level 1"
+                pos_hint: {'x': x_I-0.45, 'y':y_I-0.13}
+            Label:
+                text:"Total: [] Expend: []"
+                pos_hint: {'x': x_I-0.45, 'y':y_I-0.17} 
+            GridLayout:#nomes dos feitiços
+                pos_hint: {'x': x_I, 'y': y_I}
+                size_hint: .1,.3
+                rows: 6
+                cols:1
+                Label:
+                    text:"nomdfasdfsdafdae"
+                Label:
+                    text:"nodsafdsfasme"
+                Label:
+                    text:"ndfafdsafdome"
+                Label:
+                    text:"nodsafdasfsme"
+                Label:
+                    text:"nodasfsdme"
+                GridLayout:
+                    cols:2
+                    rows:1
+                    Button:
+                        text:"add"
+                    Button:
+                        text:"remove"
+            GridLayout:#se eles estao prontos ou nao
+                rows:5
+                cols:1
+                pos_hint: {'x':( x_I-0.03) , 'y':(y_I+0.05)} 
+                # pos_hint: {'x': x_c, 'y': y_c}
+                size_hint: .02,.25
+                CheckBox:
+                CheckBox:
+                CheckBox:
+                CheckBox:
+                CheckBox:
+            GridLayout:#abrir eles expandidos
+                pos_hint: {'x': (x_I+0.1 ), 'y':(y_I+0.05)} 
+                #pos_hint: {'x': x_c, 'y': y_c}
+                size_hint: .02,.25
+                rows:5
+                cols:1
+                Button:
+                Button:
+                Button:
+                Button:
+                Button:
+        Level2:
+            #:set y_II .3
+            #:set x_II .21
+            pos_hint: {'x':x_II , 'y':y_II}
+            Label:
+                text:"Level 2"
+                pos_hint: {'x': x_II-0.45, 'y':y_II-0.13}
+            Label:
+                text:"Total: [] Expend: []"
+                pos_hint: {'x': x_II-0.45, 'y':y_II-0.17} 
+            GridLayout:#nomes dos feitiços
+                pos_hint: {'x': x_II, 'y': y_II}
+                size_hint: .1,.3
+                rows: 6
+                cols:1
+                Label:
+                    text:"nomdfasdfsdafdae"
+                Label:
+                    text:"nodsafdsfasme"
+                Label:
+                    text:"ndfafdsafdome"
+                Label:
+                    text:"nodsafdasfsme"
+                Label:
+                    text:"nodasfsdme"
+                GridLayout:
+                    cols:2
+                    rows:1
+                    Button:
+                        text:"add"
+                    Button:
+                        text:"remove"
+            GridLayout:#se eles estao prontos ou nao
+                rows:5
+                cols:1
+                pos_hint: {'x':( x_II-0.03) , 'y':(y_II+0.05)} 
+                # pos_hint: {'x': x_c, 'y': y_c}
+                size_hint: .02,.25
+                CheckBox:
+                CheckBox:
+                CheckBox:
+                CheckBox:
+                CheckBox:
+            GridLayout:#abrir eles expandidos
+                pos_hint: {'x': (x_II+0.1 ), 'y':(y_II+0.05)} 
+                #pos_hint: {'x': x_c, 'y': y_c}
+                size_hint: .02,.25
+                rows:5
+                cols:1
+                Button:
+                Button:
+                Button:
+                Button:
+                Button:
+        Level3:
+            #:set y_III .3
+            #:set x_III .3
+            pos_hint: {'x':x_III , 'y':y_III}
+            Label:
+                text:"Level 3"
+                pos_hint: {'x': x_III-0.45, 'y':y_III-0.13} 
+            Label:
+                text:"Total: [] Expend: []"
+                pos_hint: {'x': x_III-0.45, 'y':y_III-0.17} 
+            GridLayout:#nomes dos feitiços
+                pos_hint: {'x': x_III, 'y': y_III}
+                size_hint: .1,.3
+                rows: 6
+                cols:1
+                Label:
+                    text:"nomdfasdfsdafdae"
+                Label:
+                    text:"nodsafdsfasme"
+                Label:
+                    text:"ndfafdsafdome"
+                Label:
+                    text:"nodsafdasfsme"
+                Label:
+                    text:"nodasfsdme"
+                GridLayout:
+                    cols:2
+                    rows:1
+                    Button:
+                        text:"add"
+                    Button:
+                        text:"remove"
+            GridLayout:#se eles estao prontos ou nao
+                rows:5
+                cols:1
+                pos_hint: {'x':( x_III-0.03) , 'y':(y_III+0.05)} 
+                # pos_hint: {'x': x_c, 'y': y_c}
+                size_hint: .02,.25
+                CheckBox:
+                CheckBox:
+                CheckBox:
+                CheckBox:
+                CheckBox:
+            GridLayout:#abrir eles expandidos
+                pos_hint: {'x': (x_III+0.1 ), 'y':(y_III+0.05)} 
+                #pos_hint: {'x': x_c, 'y': y_c}
+                size_hint: .02,.25
+                rows:5
+                cols:1
+                Button:
+                Button:
+                Button:
+                Button:
+                Button:
+        Level4:
+            #:set y_IV .3
+            #:set x_IV 0.39
+            pos_hint: {'x':x_IV , 'y':y_IV} 
+            Label:
+                text:"Level 4"
+                pos_hint: {'x': x_IV-0.45, 'y':y_IV-0.13}
+            Label:
+                text:"Total: [] Expend: []"
+                pos_hint: {'x': x_IV-0.45, 'y':y_IV-0.17} 
+            GridLayout:#nomes dos feitiços
+                pos_hint: {'x': x_IV, 'y': y_IV}
+                size_hint: .1,.3
+                rows: 6
+                cols:1
+                Label:
+                    text:"nomdfasdfsdafdae"
+                Label:
+                    text:"nodsafdsfasme"
+                Label:
+                    text:"ndfafdsafdome"
+                Label:
+                    text:"nodsafdasfsme"
+                Label:
+                    text:"nodasfsdme"
+                GridLayout:
+                    cols:2
+                    rows:1
+                    Button:
+                        text:"add"
+                    Button:
+                        text:"remove"
+            GridLayout:#se eles estao prontos ou nao
+                rows:5
+                cols:1
+                pos_hint: {'x':( x_IV-0.03) , 'y':(y_IV+0.05)} 
+                # pos_hint: {'x': x_c, 'y': y_c}
+                size_hint: .02,.25
+                CheckBox:
+                CheckBox:
+                CheckBox:
+                CheckBox:
+                CheckBox:
+            GridLayout:#abrir eles expandidos
+                pos_hint: {'x': (x_IV+0.1 ), 'y':(y_IV+0.05)} 
+                #pos_hint: {'x': x_c, 'y': y_c}
+                size_hint: .02,.25
+                rows:5
+                cols:1
+                Button:
+                Button:
+                Button:
+                Button:
+                Button:
+        Level5:
+            #:set y_V .07
+            #:set x_V 0.03
+            pos_hint: {'x':x_V , 'y':y_V}
+            Label:
+                text:"Level 5"
+                pos_hint: {'x': x_V-0.45, 'y':y_V-0.13}
+            Label:
+                text:"Total: [] Expend: []"
+                pos_hint: {'x': x_V-0.45, 'y':y_V-0.17} 
+            GridLayout:#nomes dos feitiços
+                pos_hint: {'x': x_V, 'y': y_V}
+                size_hint: .1,.3
+                rows: 6
+                cols:1
+                Label:
+                    text:"nomdfasdfsdafdae"
+                Label:
+                    text:"nodsafdsfasme"
+                Label:
+                    text:"ndfafdsafdome"
+                Label:
+                    text:"nodsafdasfsme"
+                Label:
+                    text:"nodasfsdme"
+                GridLayout:
+                    cols:2
+                    rows:1
+                    Button:
+                        text:"add"
+                    Button:
+                        text:"remove"
+            GridLayout:#se eles estao prontos ou nao
+                rows:5
+                cols:1
+                pos_hint: {'x':( x_V-0.03) , 'y':(y_V+0.05)} 
+                # pos_hint: {'x': x_c, 'y': y_c}
+                size_hint: .02,.25
+                CheckBox:
+                CheckBox:
+                CheckBox:
+                CheckBox:
+                CheckBox:
+            GridLayout:#abrir eles expandidos
+                pos_hint: {'x': (x_V+0.1 ), 'y':(y_V+0.05)} 
+                #pos_hint: {'x': x_c, 'y': y_c}
+                size_hint: .02,.25
+                rows:5
+                cols:1
+                Button:
+                Button:
+                Button:
+                Button:
+                Button:
+        Level6:
+            #:set y_VI .07
+            #:set x_VI .12
+            pos_hint: {'x':x_VI , 'y':y_VI}
+            Label:
+                text:"Level 6"
+                pos_hint: {'x': x_VI-0.45, 'y':y_VI-0.13}
+            Label:
+                text:"Total: [] Expend: []"
+                pos_hint: {'x': x_VI-0.45, 'y':y_VI-0.17} 
+            GridLayout:#nomes dos feitiços
+                pos_hint: {'x': x_VI, 'y': y_VI}
+                size_hint: .1,.3
+                rows: 6
+                cols:1
+                Label:
+                    text:"nomdfasdfsdafdae"
+                Label:
+                    text:"nodsafdsfasme"
+                Label:
+                    text:"ndfafdsafdome"
+                Label:
+                    text:"nodsafdasfsme"
+                Label:
+                    text:"nodasfsdme"
+                GridLayout:
+                    cols:2
+                    rows:1
+                    Button:
+                        text:"add"
+                    Button:
+                        text:"remove"
+            GridLayout:#se eles estao prontos ou nao
+                rows:5
+                cols:1
+                pos_hint: {'x':( x_VI-0.03) , 'y':(y_VI+0.05)} 
+                # pos_hint: {'x': x_c, 'y': y_c}
+                size_hint: .02,.25
+                CheckBox:
+                CheckBox:
+                CheckBox:
+                CheckBox:
+                CheckBox:
+            GridLayout:#abrir eles expandidos
+                pos_hint: {'x': (x_VI+0.1 ), 'y':(y_VI+0.05)} 
+                #pos_hint: {'x': x_c, 'y': y_c}
+                size_hint: .02,.25
+                rows:5
+                cols:1
+                Button:
+                Button:
+                Button:
+                Button:
+                Button:
+        Level7:
+            #:set y_VII .07
+            #:set x_VII .21
+            pos_hint: {'x':x_VII , 'y':y_VII}
+            Label:
+                text:"Level 7"
+                pos_hint: {'x': x_VII-0.45, 'y':y_VII-0.13}
+            Label:
+                text:"Total: [] Expend: []"
+                pos_hint: {'x': x_VII-0.45, 'y':y_VII-0.17} 
+            GridLayout:#nomes dos feitiços
+                pos_hint: {'x': x_VII, 'y': y_VII}
+                size_hint: .1,.3
+                rows: 6
+                cols:1
+                Label:
+                    text:"nomdfasdfsdafdae"
+                Label:
+                    text:"nodsafdsfasme"
+                Label:
+                    text:"ndfafdsafdome"
+                Label:
+                    text:"nodsafdasfsme"
+                Label:
+                    text:"nodasfsdme"
+                GridLayout:
+                    cols:2
+                    rows:1
+                    Button:
+                        text:"add"
+                    Button:
+                        text:"remove"
+            GridLayout:#se eles estao prontos ou nao
+                rows:5
+                cols:1
+                pos_hint: {'x':( x_VII-0.03) , 'y':(y_VII+0.05)} 
+                # pos_hint: {'x': x_c, 'y': y_c}
+                size_hint: .02,.25
+                CheckBox:
+                CheckBox:
+                CheckBox:
+                CheckBox:
+                CheckBox:
+            GridLayout:#abrir eles expandidos
+                pos_hint: {'x': (x_VII+0.1 ), 'y':(y_VII+0.05)} 
+                #pos_hint: {'x': x_c, 'y': y_c}
+                size_hint: .02,.25
+                rows:5
+                cols:1
+                Button:
+                Button:
+                Button:
+                Button:
+                Button:
+        Level8:
+            #:set y_VIII .07
+            #:set x_VIII .3
+            pos_hint: {'x':x_VIII , 'y':y_VIII}
+            Label:
+                text:"Level 8"
+                pos_hint: {'x': x_VIII-0.45, 'y':y_VIII-0.13}
+            Label:
+                text:"Total: [] Expend: []"
+                pos_hint: {'x': x_VIII-0.45, 'y':y_VIII-0.17} 
+            GridLayout:#nomes dos feitiços
+                pos_hint: {'x': x_VIII, 'y': y_VIII}
+                size_hint: .1,.3
+                rows: 6
+                cols:1
+                Label:
+                    text:"nomdfasdfsdafdae"
+                Label:
+                    text:"nodsafdsfasme"
+                Label:
+                    text:"ndfafdsafdome"
+                Label:
+                    text:"nodsafdasfsme"
+                Label:
+                    text:"nodasfsdme"
+                GridLayout:
+                    cols:2
+                    rows:1
+                    Button:
+                        text:"add"
+                    Button:
+                        text:"remove"
+            GridLayout:#se eles estao prontos ou nao
+                rows:5
+                cols:1
+                pos_hint: {'x':( x_VIII-0.03) , 'y':(y_VIII+0.05)} 
+                # pos_hint: {'x': x_c, 'y': y_c}
+                size_hint: .02,.25
+                CheckBox:
+                CheckBox:
+                CheckBox:
+                CheckBox:
+                CheckBox:
+            GridLayout:#abrir eles expandidos
+                pos_hint: {'x': (x_VIII+0.1 ), 'y':(y_VIII+0.05)} 
+                #pos_hint: {'x': x_c, 'y': y_c}
+                size_hint: .02,.25
+                rows:5
+                cols:1
+                Button:
+                Button:
+                Button:
+                Button:
+                Button:
+        Level9:
+            #:set y_IX .07
+            #:set x_IX .39
+            pos_hint: {'x':x_IX , 'y':y_IX}
+            Label:
+                text:"Level 9"
+                pos_hint: {'x': x_IX-0.45, 'y':y_IX-0.13}
+            Label:
+                text:"Total: [] Expend: []"
+                pos_hint: {'x': x_IX-0.45, 'y':y_IX-0.17} 
+            GridLayout:#nomes dos feitiços
+                pos_hint: {'x': x_IX, 'y': y_IX}
+                size_hint: .1,.3
+                rows: 6
+                cols:1
+                Label:
+                    text:"nomdfasdfsdafdae"
+                Label:
+                    text:"nodsafdsfasme"
+                Label:
+                    text:"ndfafdsafdome"
+                Label:
+                    text:"nodsafdasfsme"
+                Label:
+                    text:"nodasfsdme"
+                GridLayout:
+                    cols:2
+                    rows:1
+                    Button:
+                        text:"add"
+                    Button:
+                        text:"remove"
+            GridLayout:#se eles estao prontos ou nao
+                rows:5
+                cols:1
+                pos_hint: {'x':( x_IX-0.03) , 'y':(y_IX+0.05)} 
+                # pos_hint: {'x': x_c, 'y': y_c}
+                size_hint: .02,.25
+                CheckBox:
+                CheckBox:
+                CheckBox:
+                CheckBox:
+                CheckBox:
+            GridLayout:#abrir eles expandidos
+                pos_hint: {'x': (x_IX+0.1 ), 'y':(y_IX+0.05)} 
+                #pos_hint: {'x': x_c, 'y': y_c}
+                size_hint: .02,.25
+                rows:5
+                cols:1
+                Button:
+                Button:
+                Button:
+                Button:
+                Button:

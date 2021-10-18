@@ -1,0 +1,82 @@
+<spell class="col-xs-12 col-sm-6 ng-scope ng-isolate-scope" link-klasses="true" model="spell" ng-repeat="spell in spellsPair" ng-show="!!spell"><!-- ngIf: !!model() --><div class="panel panel-default ng-scope" ng-if="!!model()">
+<div class="panel-heading">
+<spell-heading class="ng-isolate-scope" hide="hide &amp;&amp; hide()" link-klasses="linkKlasses" model="model()"><!-- ngIf: !isHidden.name --><h3 class="title ng-scope" ng-if="!isHidden.name">
+<span class="ng-binding" ng-bind="spell.name">acalmar emo��es</span>
+<!-- ngIf: spell.originalName && spell.name != spell.originalName --><small class="text-secondary ng-scope" ng-if="spell.originalName &amp;&amp; spell.name != spell.originalName">
+    (<span class="ng-binding" ng-bind="spell.originalName">calm emotions</span>)
+  </small><!-- end ngIf: spell.originalName && spell.name != spell.originalName -->
+</h3><!-- end ngIf: !isHidden.name -->
+<p>
+<em>
+<!-- ngIf: !isHidden.spellSchool && !isHidden.level --><span class="ng-scope" ng-if="!isHidden.spellSchool &amp;&amp; !isHidden.level" ng-switch="spell.level">
+<!-- ngSwitchWhen: 0 -->
+<!-- ngSwitchDefault: --><span class="ng-scope" ng-switch-default="" translate="SPELL_BY_LEVEL_AND_SPELL_SCHOOL" translate-values="{level: (spell.level | ordinal), spellSchool: spell.spellSchool.name}">2� n�vel de encantamento</span><!-- end ngSwitchWhen: -->
+</span><!-- end ngIf: !isHidden.spellSchool && !isHidden.level -->
+<!-- ngIf: isHidden.spellSchool && !isHidden.level -->
+<!-- ngIf: !isHidden.spellSchool && isHidden.level -->
+<!-- ngIf: spell.isRitual && !isHidden.isRitual -->
+</em>
+</p>
+<!-- ngIf: !isHidden.casters --><p class="spell-casters-names ng-scope" ng-if="!isHidden.casters">
+<strong class="ng-scope" translate="CASTERS">conjuradores</strong>:
+  <spell-casters-names class="ng-isolate-scope" link-klasses="linkKlasses" spell="spell"><!-- ngRepeat: caster in casters track by caster.name --><!-- ngIf: !isLoading --><span class="ng-scope" ng-if="!isLoading" ng-repeat="caster in casters track by caster.name" style="">
+<!-- ngIf: linkKlasses --><a class="ng-binding ng-scope" href="/pt-BR/classes/bard" ng-bind="::caster.name" ng-href="/pt-BR/classes/bard" ng-if="linkKlasses">bardo</a><!-- end ngIf: linkKlasses -->
+<!-- ngIf: !linkKlasses -->
+</span><!-- end ngIf: !isLoading --><!-- end ngRepeat: caster in casters track by caster.name --><!-- ngIf: !isLoading --><span class="ng-scope" ng-if="!isLoading" ng-repeat="caster in casters track by caster.name">
+<!-- ngIf: linkKlasses --><a class="ng-binding ng-scope" href="/pt-BR/classes/cleric" ng-bind="::caster.name" ng-href="/pt-BR/classes/cleric" ng-if="linkKlasses">clerigo</a><!-- end ngIf: linkKlasses -->
+<!-- ngIf: !linkKlasses -->
+</span><!-- end ngIf: !isLoading --><!-- end ngRepeat: caster in casters track by caster.name -->
+<!-- ngIf: isLoading -->
+</spell-casters-names>
+</p><!-- end ngIf: !isHidden.casters -->
+</spell-heading>
+</div>
+<div class="panel-body">
+<spell-body class="ng-isolate-scope" hide="hide &amp;&amp; hide()" model="model()"><!-- ngIf: !isHidden.castingTime --><p class="ng-scope" ng-if="!isHidden.castingTime">
+<strong class="ng-scope" translate="CASTING_TIME">tempo de conjura��o</strong>:
+  <!-- ngIf: spell.castingTime > 0 --><span class="ng-binding ng-scope" ng-bind="spell.castingTime" ng-if="spell.castingTime &gt; 0">1</span><!-- end ngIf: spell.castingTime > 0 -->
+<span class="ng-binding" ng-bind="spell.castingTimeUnit">a��o</span><!-- ngIf: !!spell.castingConditions -->
+</p><!-- end ngIf: !isHidden.castingTime -->
+<!-- ngIf: !isHidden.range --><p class="ng-scope" ng-if="!isHidden.range">
+<strong class="ng-scope" translate="RANGE">alcance</strong>:
+  <!-- ngIf: spell.range > 0 --><span class="ng-binding ng-scope" ng-bind="spell.range" ng-if="spell.range &gt; 0">60</span><!-- end ngIf: spell.range > 0 -->
+<span class="ng-binding" ng-bind="spell.rangeUnit">p�s</span>
+</p><!-- end ngIf: !isHidden.range -->
+<!-- ngIf: !isHidden.components --><p class="ng-scope" ng-if="!isHidden.components">
+<strong class="ng-scope" translate="COMPONENTS">componentes</strong>:
+
+  <!-- ngIf: spell.doesHaveVerbalComponent --><span class="ng-scope" ng-if="spell.doesHaveVerbalComponent" translate="COMPONENTS.VERBAL.ABBREVIATION">V</span><!-- end ngIf: spell.doesHaveVerbalComponent -->
+<!-- ngIf: spell.doesHaveSomaticComponent --><span class="ng-scope" ng-if="spell.doesHaveSomaticComponent" translate="COMPONENTS.SOMATIC.ABBREVIATION">S</span><!-- end ngIf: spell.doesHaveSomaticComponent -->
+<!-- ngIf: !!spell.materialComponent -->
+</p><!-- end ngIf: !isHidden.components -->
+<!-- ngIf: !isHidden.duration --><p class="ng-scope" ng-if="!isHidden.duration">
+<strong class="ng-scope" translate="DURATION">dura��o</strong>:
+  <!-- ngIf: spell.doesNeedConcentration --><span class="ng-scope" ng-if="spell.doesNeedConcentration" translate="SPELL_CONCENTRATION">concentra��o, at�</span><!-- end ngIf: spell.doesNeedConcentration -->
+<!-- ngIf: spell.duration > 0 --><span class="ng-binding ng-scope" ng-bind="spell.duration" ng-if="spell.duration &gt; 0">1</span><!-- end ngIf: spell.duration > 0 -->
+<span class="ng-binding" ng-bind="spell.durationUnit">minutos</span>
+</p><!-- end ngIf: !isHidden.duration -->
+<div class="description ng-binding" ng-bind-html="spell.description" ng-show="!!spell.description &amp;&amp; !isHidden.description"><p>Voc� tenta suprimir emo��es fortes em um grupo de pessoas. Cada humanoide em uma esfera de 6 metros de raio [20-foot radius], centrada em um ponto que voc� escolher dentro do alcance, deve realizar um teste de resist�ncia de Carisma; uma criatura pode escolher falhar nesse teste, se desejar. Se uma criatura falhar na resist�ncia, escolha um dentre os dois efeitos a seguir.</p><p>Voc� pode suprimir qualquer efeito que esteja deixando a criatura enfeiti�ada ou amedrontada. Quando essa magia terminar, qualquer efeito suprimido volta a funcionar, considerando que sua dura��o n�o tenha acabado nesse meio tempo.</p><p>Alternativamente, voc� pode tornar um alvo indiferente �s criaturas que voc� escolher que forem hostis a ele. Essa indiferen�a acaba se o alvo for atacado ou ferido por uma magia ou se ele testemunhar qualquer dos seus amigos sendo ferido. Quando a magia terminar, a criatura se tornar� hostil novamente, a n�o ser que o Mestre diga o contr�rio.</p>
+</div>
+</spell-body>
+</div>
+<div class="panel-footer" ng-hide="isHidden.source">
+<spell-footer class="ng-isolate-scope" hide="hide &amp;&amp; hide()" model="model()"><source-references class="ng-isolate-scope" references="spell.sourcesRels"><div class="source-references">
+<strong class="ng-scope" translate="SOURCES">fontes</strong>:
+
+  <ul class="list-inline">
+<!-- ngRepeat: reference in list track by reference.sourceAbbreviation --><li class="ng-scope" ng-repeat="reference in list track by reference.sourceAbbreviation">
+<small class="sourcebook">
+<em class="ng-binding" ng-bind="reference.source.name">documento de refer�ncia de sistema</em>
+</small>
+<!-- ngIf: !!reference.page --><small class="page ng-scope" ng-if="!!reference.page">
+<span class="ng-scope" translate="PAGE.ABBREVIATION">pg</span>
+<span class="ng-binding" ng-bind="reference.page">123</span>
+</small><!-- end ngIf: !!reference.page -->
+</li><!-- end ngRepeat: reference in list track by reference.sourceAbbreviation -->
+</ul>
+</div>
+</source-references>
+</spell-footer>
+</div>
+</div><!-- end ngIf: !!model() -->
+</spell>
