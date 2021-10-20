@@ -638,18 +638,26 @@
                     text:"support atacks"
                 TextInput:
                     font_size: 11
+                    multiline:False
+                    on_text_validate: root.sup_atk(self.text)
                 TextInput:
                     font_size: 11
+                    multiline:False
                 TextInput:
                     font_size: 11
+                    multiline:False
                 TextInput:
                     font_size: 11
+                    multiline:False
                 TextInput:
                     font_size: 11
+                    multiline:False
                 TextInput:
                     font_size: 11
+                    multiline:False
                 TextInput:
                     font_size: 11
+                    multiline:False
                 Button:
                     text:"extend"
                     on_release: Factory.ExtendAtkPop().open()
@@ -1003,7 +1011,7 @@
             TextInput:
                 pos_hint:pos
                 font_name: "Seagram_tfb.ttf"
-                text:
+                multiline:False
         Allies:
             size_hint: .2,0.35
             pos_hint:{'x': .72 ,'y': .61 }

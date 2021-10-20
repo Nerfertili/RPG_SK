@@ -7,6 +7,8 @@ from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.anchorlayout import AnchorLayout
 from kivy.uix.button import Button
 from kivy.uix.textinput import TextInput
+import sqlite3 as sq
+import json
 
 Builder.load_file('tela.kv')
 
@@ -334,6 +336,13 @@ class FirstPage(Screen):
         self.remove_widget(self.i_wep3dan)
 
         self.edit_pressed=False
+    def sup_atk(self,text):
+        conn = sq.connect('PERSONAGENS.db')
+        cursor = conn.cursor()
+        print(json.dumps(text))
+        cursor.execute('insert into Characters (SupWep) values (?)',(json.dumps(text),))
+        conn.commit()
+        conn.close()
 
     class GoldGrid(FloatLayout):
         pass
