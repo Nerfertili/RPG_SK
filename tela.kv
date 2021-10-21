@@ -639,7 +639,7 @@
                 TextInput:
                     font_size: 11
                     multiline:False
-                    on_text_validate: root.sup_atk(self.text)
+                    on_text_validate: root.sup_atk(self.text,0)
                 TextInput:
                     font_size: 11
                     multiline:False
@@ -674,6 +674,7 @@
             Label:
                 font_size: 30
                 color: 0,0,0,1 
+                id:CharName
                 text:"belyna"
         OrientationGrid:
             orientation: 'vertical'

@@ -41,7 +41,7 @@ class SpellsPage(Screen):
 
     def __init__(self, **kwargs):    # isso é só para deixar definido o tamanho da tela
         super().__init__(**kwargs)
-        Window.size = (1366,768)
+        Window.size = (1080,720)
     
     def p_main(self):
         self.parent.current = "first"
@@ -336,12 +336,18 @@ class FirstPage(Screen):
         self.remove_widget(self.i_wep3dan)
 
         self.edit_pressed=False
-    def sup_atk(self,text):
+    def sup_atk(self,text,numb):
+
         conn = sq.connect('PERSONAGENS.db')
         cursor = conn.cursor()
-        print(json.dumps(text))
-        cursor.execute('insert into Characters (SupWep) values (?)',(json.dumps(text),))
-        conn.commit()
+        cursor.execute("SELECT SupWep FROM Characters WHERE CharName=?",(self.ids.CharName.text,))
+        sup_wep = json.loads(cursor.fetchall()[0][0])
+
+        if text!='' and text!= sup_wep['supwep'][numb]:
+            print(1231231)
+            sup_wep['supwep'][numb] = text    
+            cursor.execute('update Characters set SupWep=? where CharName=?',(json.dumps(sup_wep),self.ids.CharName.text))
+            conn.commit()
         conn.close()
 
     class GoldGrid(FloatLayout):
@@ -398,6 +404,8 @@ class TestApp(App):
         # Create the screen manager
         screenManager = MainMenu()
         return screenManager
+
+
 
 if __name__ == '__main__':
     TestApp().run()
